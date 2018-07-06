@@ -19,7 +19,7 @@
     "watch-lint": "tsc --watch --skipLibCheck --preserveWatchOutput",
     "watch-compile": "tsc --watch --skipLibCheck --preserveWatchOutput",
     "watch-test": "CI=true npm run test -- --watchAll",
-    "watch-run": "supervisor dist/app.js",
+    "watch-run": "supervisor dist/index.js",
     "deploy": "rsync -avz ./dist root@elpaso.servers.pushcall.com:/var/www/bvkatwijk/dist"
   },
   "author": "bvkatwijk",
