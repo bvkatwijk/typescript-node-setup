@@ -1,0 +1,11 @@
+{
+  "name": "typescript-node-setup",
+  "version": "1.0.0",
+  "description": "Example setup using TypeScript and Node",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "author": "bvkatwijk",
+  "license": "ISC"
+}
