@@ -12,7 +12,7 @@
   },
   "scripts": {
     "lint": "tslint --project '.'",
-    "compile": "tsc",
+    "compile": "tsc --skipLibCheck",
     "test": "jest --detectOpenHandles",
     "run": "node dist/app.js",
     "watch": "concurrently \"npm run watch-compile\" \"npm run watch-run\" \"npm run watch-test\" --kill-others",
