@@ -2,6 +2,10 @@
   "name": "typescript-node-setup",
   "version": "1.0.0",
   "description": "Example setup using TypeScript and Node",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/bvkatwijk/typescript-node-setup.git"
+  },
   "main": "index.js",
   "directories": {
     "doc": "docs"
