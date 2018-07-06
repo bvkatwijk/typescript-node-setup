@@ -1,5 +1,8 @@
-import { hello } from "./index";
+var request = require('request');
 
-test("it should do something", () => {
-  expect(hello("Bob")).toBe("Hello Bob");
+test('Main page content', function(done) {
+    request('http://localhost:3000' , function(_error: any, _response: any, body: any) {
+        expect(body).toBe('Hello World');
+        done();
+    });
 });
