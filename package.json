@@ -13,12 +13,16 @@
   "scripts": {
     "lint": "tslint --project '.'",
     "compile": "tsc --skipLibCheck",
-    "test": "jest --detectOpenHandles",
-    "run": "node dist/app.js",
-    "watch": "concurrently \"npm run watch-compile\" \"npm run watch-run\" \"npm run watch-test\" --kill-others",
+    "run": "node dist/index.js",
+
+    "test": "npm run test-unit && npm run test-integration",
+    "test-unit": "jest src/ --detectOpenHandles",
+    "test-integration": "concurrently --kill-others --success first \"npm run run\" \"jest int --detectOpenHandles\"",
+
+    "watch": "concurrently --kill-others \"npm run watch-compile\" \"npm run watch-run\" \"npm run watch-test\"",
     "watch-lint": "tsc --watch --skipLibCheck --preserveWatchOutput",
     "watch-compile": "tsc --watch --skipLibCheck --preserveWatchOutput",
-    "watch-test": "CI=true npm run test -- --watchAll",
+    "watch-test": "CI=true npm run test-unit -- --watchAll",
     "watch-run": "supervisor dist/index.js",
     "deploy": "rsync -avz ./dist root@elpaso.servers.pushcall.com:/var/www/bvkatwijk/dist"
   },
@@ -51,9 +55,7 @@
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.ts?$",
     "moduleFileExtensions": [
       "ts",
-      "tsx",
       "js",
-      "jsx",
       "json",
       "node"
     ]
