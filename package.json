@@ -13,7 +13,7 @@
   "scripts": {
     "lint": "tslint --project '.'",
     "compile": "tsc --skipLibCheck",
-    "run": "node dist/index.js",
+    "run": "node dist/src/index.js",
 
     "test": "npm run test-unit && npm run test-integration",
     "test-unit": "jest src/ --detectOpenHandles",
@@ -24,7 +24,10 @@
     "watch-compile": "tsc --watch --skipLibCheck --preserveWatchOutput",
     "watch-test": "CI=true npm run test-unit -- --watchAll",
     "watch-run": "supervisor dist/index.js",
-    "deploy": "rsync -avz ./dist root@elpaso.servers.pushcall.com:/var/www/bvkatwijk/dist"
+    "deploy": "rsync -avz ./dist root@elpaso.servers.pushcall.com:/var/www/bvkatwijk/dist",
+
+
+    "prerun": "npm run compile"
   },
   "author": "bvkatwijk",
   "license": "ISC",
