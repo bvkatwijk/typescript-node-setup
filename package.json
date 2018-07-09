@@ -14,19 +14,15 @@
     "lint": "tslint --project '.'",
     "compile": "tsc --skipLibCheck",
     "run": "node dist/src/index.js",
-
     "test": "npm run test-unit && npm run test-integration",
-    "test-unit": "jest src/ --detectOpenHandles",
+    "test-unit": "jest src/ --detectOpenHandles --collectCoverage true",
     "test-integration": "concurrently --kill-others --success first \"npm run run\" \"jest int --detectOpenHandles\"",
-
     "watch": "concurrently --kill-others \"npm run watch-compile\" \"npm run watch-run\" \"npm run watch-test\"",
     "watch-lint": "tsc --watch --skipLibCheck --preserveWatchOutput",
     "watch-compile": "tsc --watch --skipLibCheck --preserveWatchOutput",
     "watch-test": "CI=true npm run test-unit -- --watchAll",
     "watch-run": "supervisor dist/index.js",
     "deploy": "rsync -avz ./dist root@elpaso.servers.pushcall.com:/var/www/bvkatwijk/dist",
-
-
     "prerun": "npm run compile"
   },
   "author": "bvkatwijk",
@@ -35,6 +31,7 @@
     "@types/express": "^4.16.0",
     "@types/jasmine": "^2.8.8",
     "@types/jest": "^23.1.4",
+    "codecov": "^3.0.4",
     "concurrently": "^3.6.0",
     "jest": "^23.3.0",
     "live-server": "^1.2.0",
